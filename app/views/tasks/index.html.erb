@@ -1,0 +1,18 @@
+<h1>Tasks</h1>
+
+<%= link_to 'Create New Task', new_task_path, class: "btn btn-success mb-3"%>
+
+<div class="row">
+  <% @tasks.each do |task| %>
+    <div class="col-sm-6 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= task.title %></h5>
+          <p class="card-text"><%= truncate(task.details, length:50)%></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Go home', root_path %>
