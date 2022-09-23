@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
   end
 
   def new
@@ -14,7 +15,7 @@ class TasksController < ApplicationController
     @task = Task.new(params.require(:task).permit(:title, :details))
     if @task.save
       flash[:success] = 'Task was created successfully'
-      redirect_to root_path
+      redirect_to tasks_path
     else
       render 'new'
     end
