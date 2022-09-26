@@ -1,11 +1,10 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [ :show, :edit, :update ]
-
   def index
     @tasks = Task.all
   end
 
   def show
+    @task = Task.find(params[:id])
   end
 
   def new
@@ -13,7 +12,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = Task.new(params.require(:task).permit(:title, :details))
     if @task.save
       flash[:success] = 'Task was created successfully'
       redirect_to tasks_path
@@ -35,14 +34,5 @@ class TasksController < ApplicationController
   end
 
   def destroy
-  end
-
-  private
-  def set_task
-    @task = Task.find(params[:id])
-  end
-
-  def task_params
-    params.require(:task).permit(:title, :details)
   end
 end
