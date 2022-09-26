@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update ]
 
   def index
-    @tasks = Task.all.current_tasks
+    @tasks = Task.all
   end
 
   def show
@@ -26,12 +26,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    @new_task = Task.new(task_params)
-    @new_task.created_at = @task.updated_at
-    @new_task.current_task_id = @task.id
     if @task.update(task_params)
       flash[:success] = 'Task was created successfully'
-      @new_task.save
       redirect_to @task
     else
       render 'new'
