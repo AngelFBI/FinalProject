@@ -25,6 +25,12 @@ class TasksController < ApplicationController
   end
 
   def update
+    if @task.update(task_params)
+      flash[:success] = 'Task was created successfully'
+      redirect_to @task
+    else
+      render 'new'
+    end
   end
 
   def destroy
