@@ -11,7 +11,15 @@
           <div class="card-text trix-content">
             <%= task.details %>
           </div>
-          <%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: "Are you sure?"}, class:'btn btn-danger mt-2'%>
+          <div class="card-footer mb-3">
+            <small class="text-muted">
+              <b>Started at: </b><%= has_value?(task.started_at) %> |
+              <b>Finished at: </b> <%= has_value?(task.finished_at) %>
+            </small>
+          </div>
+
+          <%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: "Are you sure?"}, class:'btn btn-danger'%>
+          <%= link_to 'Show', task_path(task), class:'btn btn-outline-info'%>
         </div>
       </div>
     </div>
