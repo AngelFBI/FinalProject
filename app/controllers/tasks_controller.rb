@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
-  before_action :set_task, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_task, only: %i[show edit update destroy]
 
   def index
     @tasks = Task.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @task = Task.new
@@ -22,8 +23,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @task.update(task_params)
@@ -40,6 +40,7 @@ class TasksController < ApplicationController
   end
 
   private
+
   def set_task
     @task = Task.find(params[:id])
   end

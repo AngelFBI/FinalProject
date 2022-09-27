@@ -1,0 +1,15 @@
+require: rubocop-rails
+
+Style/Documentation:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/20220926185735_create_active_storage_tables.active_storage.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/20220926185735_create_active_storage_tables.active_storage.rb
