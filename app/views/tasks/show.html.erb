@@ -3,10 +3,13 @@
     <b>Anonymous</b>
     <small class="text-muted d-flex">
         <div class= "p-2">
-          <b>Started at: </b><%= has_value?(@task.started_at) %>
+          <b>Started at: </b><%= @presenter.has_started_at? %>
         </div>
         <div class= "p-2">
-          <b>Finished at: </b> <%= has_value?(@task.finished_at) %>
+          <b>Finished at: </b> <%= @presenter.has_finished_at? %>
+        </div>
+        <div class= "p-2">
+          <%= @presenter.has_doing_time?%>
         </div>
     </small>
   </div>
@@ -24,12 +27,12 @@
       <%= link_to 'Start Task',
         task_path(@task, task: { started_at: Time.now }),
         method: :put, data: { confirm: "Are you sure?" },
-        class:'btn btn-outline-primary'%>
+        class:'btn btn-outline-primary' %>
     <% else %>
       <%= link_to 'Finish Task',
         task_path(@task, task: { finished_at: Time.now }),
         method: :put, data: { confirm: "Are you sure?" },
-        class:'btn btn-outline-info'%>
+        class:'btn btn-outline-info' %>
     <% end %>
   </div>
   <div class="card-footer">
