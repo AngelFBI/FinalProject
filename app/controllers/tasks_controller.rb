@@ -2,6 +2,7 @@
 
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
+  before_action :set_presenter, only: %i[show]
 
   def index
     @tasks = Task.all
@@ -47,5 +48,9 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :details, :started_at, :finished_at)
+  end
+
+  def set_presenter
+    @presenter = TaskPresenter.new(@task)
   end
 end
