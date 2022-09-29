@@ -3,13 +3,13 @@
     <b>Anonymous</b>
     <small class="text-muted d-flex">
         <div class= "p-2">
-          <b>Started at: </b><%= @presenter.has_started_at? %>
+          <b>Started at: </b><%= @presenter.started_at? %>
         </div>
         <div class= "p-2">
-          <b>Finished at: </b> <%= @presenter.has_finished_at? %>
+          <b>Finished at: </b> <%= @presenter.finished_at? %>
         </div>
         <div class= "p-2">
-          <%= @presenter.has_doing_time?%>
+          <%= @presenter.doing_time?%>
         </div>
     </small>
   </div>

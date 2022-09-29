@@ -10,11 +10,10 @@ class Task < ApplicationRecord
   end
 
   private
+
   def doing_time_in_seconds
-    begin
-      (finished_at - started_at).to_i
-    rescue Exception => e
-      nil
-    end
+    (finished_at - started_at).to_i
+  rescue StandardError
+    nil
   end
 end
