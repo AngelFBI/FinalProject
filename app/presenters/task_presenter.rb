@@ -23,6 +23,13 @@ class TaskPresenter
     html + pluralized_time
   end
 
+  def justification?
+    return unless @task.justification
+
+    html = '<h5>Justification</h5>'.html_safe
+    html + @task.justification
+  end
+
   def start_finish_justification_button?
     if @task.started_at.nil?
       link_to 'Start Task',
