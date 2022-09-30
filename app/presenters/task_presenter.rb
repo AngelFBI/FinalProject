@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class TaskPresenter
-  include ActionView::Helpers::TextHelper
+  include ActionView::Helpers
+  include Rails.application.routes.url_helpers
+
   def initialize(task)
     @task = task
   end
@@ -21,6 +23,24 @@ class TaskPresenter
     html + pluralized_time
   end
 
+  def start_finish_justification_button?
+    if @task.started_at.nil?
+      link_to 'Start Task',
+      task_path(@task, task: { started_at: Time.now }),
+      method: :put, data: { confirm: 'Are you sure?' },
+      class:'btn btn-outline-primary'
+    elsif @task.finished_at.nil?
+      link_to 'Finish Task',
+      task_path(@task, task: { finished_at: Time.now }),
+      method: :put, data: { confirm: 'Are you sure?' },
+      class:'btn btn-outline-info'
+    else
+      link_to 'Add Justification',
+      justification_path(@task),
+      class:'btn btn-outline-warning'
+    end
+  end
+
   private
 
   def display_time(task_time_value)
@@ -34,4 +54,6 @@ class TaskPresenter
       '>1 hour'
     end
   end
+
+
 end
