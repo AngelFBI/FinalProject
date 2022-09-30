@@ -3,5 +3,6 @@ class Tasks::JustificationController < TasksController
   end
 
   def update
+    super
   end
 end
