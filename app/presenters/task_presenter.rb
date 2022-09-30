@@ -32,19 +32,11 @@ class TaskPresenter
 
   def start_finish_justification_button?
     if @task.started_at.nil?
-      link_to 'Start Task',
-      task_path(@task, task: { started_at: Time.now }),
-      method: :put, data: { confirm: 'Are you sure?' },
-      class:'btn btn-outline-primary'
+      start_button
     elsif @task.finished_at.nil?
-      link_to 'Finish Task',
-      task_path(@task, task: { finished_at: Time.now }),
-      method: :put, data: { confirm: 'Are you sure?' },
-      class:'btn btn-outline-info'
+      finish_button
     else
-      link_to 'Add Justification',
-      justification_path(@task),
-      class:'btn btn-outline-warning'
+      justification_button
     end
   end
 
@@ -62,5 +54,23 @@ class TaskPresenter
     end
   end
 
+  def start_button
+    link_to 'Start Task',
+            task_path(@task, task: { started_at: Time.zone.now }),
+            method: :put, data: { confirm: 'Are you sure?' },
+            class: 'btn btn-outline-primary'
+  end
 
+  def finish_button
+    link_to 'Finish Task',
+            task_path(@task, task: { finished_at: Time.zone.now }),
+            method: :put, data: { confirm: 'Are you sure?' },
+            class: 'btn btn-outline-info'
+  end
+
+  def justification_button
+    link_to 'Add Justification',
+            justification_path(@task),
+            class: 'btn btn-outline-warning'
+  end
 end

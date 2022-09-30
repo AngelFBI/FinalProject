@@ -1,8 +1,7 @@
-class Tasks::JustificationController < TasksController
-  def edit
-  end
+# frozen_string_literal: true
 
-  def update
-    super
+module Tasks
+  class JustificationController < TasksController
+    def edit; end
   end
 end
