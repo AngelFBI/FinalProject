@@ -1,1 +1,14 @@
 @import 'bootstrap/dist/css/bootstrap';
+
+
+.list-tasks{
+  height: 45rem;
+  width: 18rem;
+  margin-left: 1rem;
+}
+
+.lists-container{
+  width: 200rem;
+  height: 50rem;
+  overflow-x: auto;
+}
