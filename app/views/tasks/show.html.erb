@@ -1,22 +1,12 @@
-<div class="card mt-4 mb-2">
-  <div class="card-header">
-    Anonymous
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"><%= @task.title %></h5>
-    <div class="card-text trix-content mb-2">
-      <%= @task.details %>
-    </div>
-    <%= link_to 'Edit', edit_task_path(@task), class:'btn btn-outline-info'%>
-    <%= link_to 'Delete', task_path(@task), method: :delete, data: {confirm: "Are you sure?"}, class:'btn btn-outline-danger'%>
-    <%= link_to 'Start Task', '#', class:'btn btn-outline-primary'%>
-  </div>
-  <div class="card-footer">
-      <small class="text-muted">
-        <b>Created at: </b><%= @task.created_at%> |
-        <b>Edited at: </b> <%= @task.updated_at%>
-      </small>
-    </div>
+<%= render 'card', task: @task%>
+
+<div class="mb-3">
+  <%= link_to 'Edit', edit_task_path(@task),
+    class:'btn btn-outline-info' %>
+  <%= link_to 'Delete', task_path(@task),
+    method: :delete, data: { confirm: "Are you sure?" },
+    class:'btn btn-outline-danger' %>
+  <%= @presenter.start_finish_justification_button? %>
 </div>
 
 <%= link_to 'Go back', tasks_path%>

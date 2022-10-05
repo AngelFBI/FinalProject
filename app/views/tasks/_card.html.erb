@@ -1,0 +1,35 @@
+<% @presenter = TaskPresenter.new(task) %>
+<div class="card mt-4 mb-2">
+  <div class="card-header ">
+    <b>Anonymous</b>
+    <small class="text-muted d-flex">
+        <div class= "p-2">
+          <b>Started at: </b><%= @presenter.started_at? %>
+        </div>
+        <div class= "p-2">
+          <b>Finished at: </b> <%= @presenter.finished_at? %>
+        </div>
+        <div class= "p-2">
+          <%= @presenter.doing_time? %>
+        </div>
+    </small>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= task.title %></h5>
+    <div class="card-text trix-content mb-2 list-group">
+      <div class="list-group-item">
+        <%= task.details %>
+      </div>
+      <div class="list-group-item bg-secondary bg-opacity-25">
+        <%= @presenter.justification? %>
+      </div>
+
+    </div>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">
+      <b>Created at: </b><%= task.created_at %> |
+      <b>Edited at: </b> <%= task.updated_at %>
+    </small>
+  </div>
+</div>
