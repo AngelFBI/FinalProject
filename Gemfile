@@ -29,6 +29,7 @@ gem 'image_processing', '~> 1.2'
 
 gem 'bootstrap'
 gem 'rubocop-rails', require: false
+gem "font-awesome-sass", "~> 6.2.0"
 # gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
