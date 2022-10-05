@@ -2,7 +2,7 @@
 
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
-  before_action :get_list, only: %i[new create]
+  before_action :list, only: %i[new create]
 
   def index
     @tasks = Task.all
