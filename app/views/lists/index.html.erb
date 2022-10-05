@@ -1,11 +1,10 @@
 <h1>Lists</h1>
 <%= link_to 'New List', new_list_path, class: 'btn btn-outline-success mb-3'%>
-<div class="overflow-auto">
-  <div class="lists-container d-flex">
-    <% @lists.each do |list| %>
-      <%= render 'card', list: list %>
-    <% end %>
-  </div>
+
+<div class="row">
+  <% @lists.each do |list| %>
+    <%= render 'card', list: list %>
+  <% end %>
 </div>
 
 <%= link_to 'Go home', root_path %>
