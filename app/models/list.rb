@@ -4,6 +4,8 @@ class List < ApplicationRecord
   COLORS = %w[danger success dark light primary secondary warning info].freeze
   PRIORITIES = %w[High Medium Low].freeze
 
+  has_many :tasks, dependent: :destroy
+
   validates :name, presence: true
   validates :color, presence: true, inclusion: { in: COLORS }
   validates :priority, presence: true, inclusion: { in: PRIORITIES }

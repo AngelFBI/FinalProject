@@ -70,7 +70,7 @@ class TaskPresenter
 
   def justification_button
     link_to 'Add Justification',
-            justification_path(@task),
+            list_justification_path(@task.list_id, @task),
             class: 'btn btn-outline-warning'
   end
 end

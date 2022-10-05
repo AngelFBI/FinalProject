@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'image_processing', '~> 1.2'
 
 gem 'bootstrap'
+gem 'font-awesome-sass', '~> 6.2.0'
 gem 'rubocop-rails', require: false
 # gem 'jquery-rails'
 
