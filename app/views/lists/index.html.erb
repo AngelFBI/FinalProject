@@ -1,5 +1,5 @@
 <h1>Lists</h1>
-
+<%= link_to 'New List', new_list_path, class: 'btn btn-outline-success mb-3'%>
 <div class="overflow-auto">
   <div class="lists-container d-flex">
     <% @lists.each do |list| %>
@@ -7,7 +7,10 @@
         <div class="card-body">
           <h5 class="card-title d-flex flex-row justify-content-between">
             <%= list.name %>
-            <%= link_to icon('fa-regular', 'square-plus'), new_list_task_path(list) %>
+            <div>
+              <%= link_to icon('fa-regular', 'pen-to-square'), edit_list_path(list) %>
+              <%= link_to icon('fa-solid', 'trash'), list_path(list), method: :delete, data: {confirm: "Are you sure?"} %>
+            </div>
           </h5>
           <h6 class="card-subtitle mb-2 text-light">
             Priority: <%= list.priority %>
