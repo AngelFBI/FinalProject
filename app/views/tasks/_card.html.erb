@@ -23,13 +23,20 @@
       <div class="list-group-item bg-secondary bg-opacity-25">
         <%= @presenter.justification? %>
       </div>
-
     </div>
   </div>
   <div class="card-footer">
     <small class="text-muted">
       <b>Created at: </b><%= task.created_at %> |
       <b>Edited at: </b> <%= task.updated_at %>
+    </small>
+    <small class="text-muted">
+      <h4>History</h4>
+      <% task.task_histories.each do |history| %>
+        <div>
+          Moved to <%= history.list %> on <%= history.created_at %>
+        </div>
+      <% end %>
     </small>
   </div>
 </div>
