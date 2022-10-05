@@ -1,7 +1,7 @@
 <div class="card bg-<%= list.color %> list-tasks">
   <div class="card-body">
     <h5 class="card-title d-flex flex-row justify-content-between">
-      <%= list.name %>
+      <%= link_to list.name, list %>
       <div>
         <%= link_to icon('fa-regular', 'pen-to-square'),
           edit_list_path(list) %>

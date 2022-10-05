@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 class ListsController < ApplicationController
+  before_action :set_list, only: %i[show edit update destroy]
 
-  before_action :set_list, only: %i[edit update destroy]
   def index
     @lists = List.all
+  end
+
+  def show
+    redirect_to list_tasks_path(@list)
   end
 
   def new
