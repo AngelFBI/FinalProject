@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :lists, shallow: true do
     resources :tasks
     get 'tasks/:id/justification', to: 'tasks/justification#edit',
-                                  as: 'justification'
+                                   as: 'justification'
   end
 end

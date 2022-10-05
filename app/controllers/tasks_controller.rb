@@ -48,10 +48,10 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :details,
-      :started_at, :finished_at, :justification, :list_id)
+                                 :started_at, :finished_at, :justification, :list_id)
   end
 
-  def get_list
+  def list
     @list = List.find(params[:list_id])
   end
 end
