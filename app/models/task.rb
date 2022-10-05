@@ -8,7 +8,7 @@ class Task < ApplicationRecord
   validates :title, presence: true
   validates :list_id, presence: true
 
-  before_save :add_task_history
+  after_save :add_task_history
 
   def doing_time
     doing_time_in_seconds / 1.hour if doing_time_in_seconds
