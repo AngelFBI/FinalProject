@@ -7,6 +7,7 @@ class Task < ApplicationRecord
 
   validates :title, presence: true
   validates :list_id, presence: true
+  validates_with TasksValidator
 
   after_save :add_task_history
 
