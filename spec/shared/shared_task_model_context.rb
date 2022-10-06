@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'task model' do
   let(:list) do
     List.create(name: 'Example List', color: 'success', priority: 'Low')
