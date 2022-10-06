@@ -3,7 +3,7 @@
 class Task < ApplicationRecord
   has_rich_text :details
   belongs_to :list
-  has_many :task_histories
+  has_many :task_histories, dependent: :destroy
 
   validates :title, presence: true
   validates :list_id, presence: true
