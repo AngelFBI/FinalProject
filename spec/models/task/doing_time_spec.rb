@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'shared/shared_task_model_context'
+require 'shared/task/model_context'
 
 RSpec.describe Task, type: :model do
   include_context 'task model'
@@ -11,6 +11,6 @@ RSpec.describe Task, type: :model do
   end
 
   it "can't use doing time" do
-    expect(task_with_list.doing_time).to eq(nil)
+    expect(task.doing_time).to eq(nil)
   end
 end

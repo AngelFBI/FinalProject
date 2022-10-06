@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rails_helper'
+
 RSpec.shared_context 'task model' do
   let(:list) do
     List.create(name: 'Example List', color: 'success', priority: 'Low')
@@ -10,17 +12,17 @@ RSpec.shared_context 'task model' do
   end
 
   let(:task) do
-    Task.new(title: 'Example', details: 'Task to be done')
-  end
-
-  let(:task_with_list) do
-    task.list_id = list.id
-    task
+    Task.new(title: 'Example', details: 'Task to be done', list_id: list.id)
   end
 
   let(:task_doing_time) do
-    task_with_list.started_at = Time.zone.now - 1.day
-    task_with_list.finished_at = Time.zone.now
-    task_with_list
+    task.started_at = Time.zone.now - 1.day
+    task.finished_at = Time.zone.now
+    task
+  end
+
+  let(:task_created) do
+    task.save
+    task
   end
 end

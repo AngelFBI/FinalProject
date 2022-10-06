@@ -9,7 +9,6 @@ class Task < ApplicationRecord
   has_many :task_histories, dependent: :destroy
 
   validates :title, presence: true
-  validates :list_id, presence: true
   validates_with TasksValidator
 
   def doing_time

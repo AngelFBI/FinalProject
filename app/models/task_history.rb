@@ -2,4 +2,6 @@
 
 class TaskHistory < ApplicationRecord
   belongs_to :task
+
+  validates :list, presence: true
 end
