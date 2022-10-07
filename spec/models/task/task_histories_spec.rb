@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'shared/task/model_context'
 
 RSpec.describe Task, type: :model do
   include_context 'task model'

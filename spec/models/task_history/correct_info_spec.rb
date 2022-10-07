@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'shared/task_history/model_context'
 
 RSpec.describe TaskHistory, type: :model do
   include_context 'task history model'

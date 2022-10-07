@@ -11,4 +11,9 @@ RSpec.shared_context 'board model' do
     board.visibility = :private
     board
   end
+
+  let(:board_created) do
+    board.save
+    board
+  end
 end

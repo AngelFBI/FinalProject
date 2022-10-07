@@ -3,13 +3,7 @@
 require 'rails_helper'
 
 RSpec.shared_context 'task model' do
-  let(:list) do
-    List.create(name: 'Example List', color: 'success', priority: 'Low')
-  end
-
-  let(:list2) do
-    List.create(name: 'Example List 2', color: 'danger', priority: 'High')
-  end
+  include_context 'list model'
 
   let(:task) do
     Task.new(title: 'Example', details: 'Task to be done', list_id: list.id)
