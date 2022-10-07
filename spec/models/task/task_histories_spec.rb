@@ -25,9 +25,9 @@ RSpec.describe Task, type: :model do
     expect(task_created.task_histories.length).to eq(1)
   end
 
-  it "deletes dependencies" do
+  it 'deletes dependencies' do
     id = task_created.id
     task_created.destroy
-    expect {TaskHistory.find(id)}.to raise_error(ActiveRecord::RecordNotFound)
+    expect { TaskHistory.find(id) }.to raise_error(ActiveRecord::RecordNotFound)
   end
 end
