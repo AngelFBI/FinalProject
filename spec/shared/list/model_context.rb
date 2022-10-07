@@ -7,19 +7,19 @@ RSpec.shared_context 'list model' do
 
   let(:list) do
     List.new(name: 'Example List',
-      color: 'warning', priority: 'Medium',
-      board_id: board_created.id)
+             color: 'warning', priority: 'Medium',
+             board_id: board_created.id)
   end
 
   let(:list_created) do
     List.create(name: 'Example List Created',
-      color: 'success', priority: 'Low',
-      board_id: board_created.id)
+                color: 'success', priority: 'Low',
+                board_id: board_created.id)
   end
 
-  let(:list_created_2) do
+  let(:list_created2) do
     List.create(name: 'Example List 2',
-      color: 'danger', priority: 'High',
-      board_id: board_created.id)
+                color: 'danger', priority: 'High',
+                board_id: board_created.id)
   end
 end

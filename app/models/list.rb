@@ -5,7 +5,7 @@ class List < ApplicationRecord
   belongs_to :board
 
   enum color: { danger: 0, success: 1, warning: 2, info: 3,
-    primary:4, secondary:5 }, _prefix: true
+                primary: 4, secondary: 5 }, _prefix: true
   enum priority: { Low: 0, Medium: 1, High: 3 }, _prefix: true
 
   validates :name, presence: true

@@ -33,14 +33,4 @@ RSpec.describe List, type: :model do
     list.color = :primary
     expect(list.save).to eq(true)
   end
-
-  it 'can be save Low priority' do
-    list.priority = :Low
-    expect(list.save).to eq(true)
-  end
-
-  it 'can be save High priority' do
-    list.priority = :High
-    expect(list.save).to eq(true)
-  end
 end

@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe List, type: :model do
   include_context 'list model'
   let(:task) do
-    {title:'Example', details:'Some details'}
+    { title: 'Example', details: 'Some details' }
   end
 
   it 'can build tasks' do
