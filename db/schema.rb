@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_05_225401) do
+ActiveRecord::Schema.define(version: 2022_10_07_185130) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -50,12 +50,21 @@ ActiveRecord::Schema.define(version: 2022_10_05_225401) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "lists", force: :cascade do |t|
+  create_table "boards", force: :cascade do |t|
     t.string "name"
-    t.string "color"
-    t.string "priority"
+    t.integer "visibility"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.integer "color"
+    t.integer "priority"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "board_id"
+    t.index ["board_id"], name: "index_lists_on_board_id"
   end
 
   create_table "task_histories", force: :cascade do |t|
@@ -79,6 +88,7 @@ ActiveRecord::Schema.define(version: 2022_10_05_225401) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "lists", "boards"
   add_foreign_key "task_histories", "tasks"
   add_foreign_key "tasks", "lists"
 end

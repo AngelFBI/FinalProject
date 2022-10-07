@@ -9,7 +9,7 @@ class Task < ApplicationRecord
   has_many :task_histories, dependent: :destroy
 
   validates :title, presence: true
-  validates_with TasksValidator
+  validates_with TaskValidator
 
   def doing_time
     doing_time_in_seconds / 1.hour if doing_time_in_seconds

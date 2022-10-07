@@ -8,6 +8,11 @@ require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'shared/context/board_model'
+require 'shared/context/list_model'
+require 'shared/context/task_model'
+require 'shared/context/task_history_model'
+require 'shared/examples/dependency_example'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

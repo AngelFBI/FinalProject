@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TasksValidator < ActiveModel::Validator
+class TaskValidator < ActiveModel::Validator
   def validate(record)
     need_finished_at(record) if record.finished_at.nil? && !record.justification.nil?
 
