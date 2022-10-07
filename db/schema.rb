@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_07_180303) do
+ActiveRecord::Schema.define(version: 2022_10_07_185130) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2022_10_07_180303) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
-    t.string "color"
-    t.string "priority"
+    t.integer "color"
+    t.integer "priority"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "board_id"

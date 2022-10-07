@@ -6,7 +6,7 @@ RSpec.shared_context 'task model' do
   include_context 'list model'
 
   let(:task) do
-    Task.new(title: 'Example', details: 'Task to be done', list_id: list.id)
+    Task.new(title: 'Example', details: 'Task to be done', list_id: list_created.id)
   end
 
   let(:task_doing_time) do

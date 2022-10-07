@@ -6,6 +6,6 @@ RSpec.describe Task, type: :model do
   include_context 'task model'
 
   it 'can access list name' do
-    expect(task_created.list.name).to eq(list.name)
+    expect(task_created.list.name).to eq(list_created.name)
   end
 end

@@ -6,12 +6,18 @@ RSpec.shared_context 'list model' do
   include_context 'board model'
 
   let(:list) do
-    List.create(name: 'Example List',
+    List.new(name: 'Example List',
+      color: 'warning', priority: 'Medium',
+      board_id: board_created.id)
+  end
+
+  let(:list_created) do
+    List.create(name: 'Example List Created',
       color: 'success', priority: 'Low',
       board_id: board_created.id)
   end
 
-  let(:list2) do
+  let(:list_created_2) do
     List.create(name: 'Example List 2',
       color: 'danger', priority: 'High',
       board_id: board_created.id)
