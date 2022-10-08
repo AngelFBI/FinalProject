@@ -3,6 +3,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
   before_action :list, only: %i[index new create]
+  before_action :shallow_list, only: %i[update destroy]
 
   def index
     @tasks = @list.tasks
@@ -12,19 +13,22 @@ class TasksController < ApplicationController
 
   def new
     @task = @list.tasks.build
+    @lists = @list.board.lists
   end
 
   def create
     @task = @list.tasks.build(task_params)
     if @task.save
       flash[:success] = 'Task was created successfully'
-      redirect_to lists_path
+      redirect_to board_lists_path(@list.board_id)
     else
       render 'new'
     end
   end
 
-  def edit; end
+  def edit
+    @lists = @task.list.board.lists
+  end
 
   def update
     if @task.update(task_params)
@@ -36,8 +40,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    board = @task.list.board_id
     @task.destroy
-    redirect_to lists_path
+    redirect_to board_lists_path(board)
   end
 
   private
@@ -53,5 +58,9 @@ class TasksController < ApplicationController
 
   def list
     @list = List.find(params[:list_id])
+  end
+
+  def shallow_list
+    @list = @task.list
   end
 end

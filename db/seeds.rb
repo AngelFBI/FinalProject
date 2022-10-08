@@ -20,17 +20,17 @@ lists = [
   {
     name: 'List 1',
     color: 'success',
-    priority: 'Low',
+    priority: 'Low'
   },
   {
     name: 'List 2',
     color: 'danger',
-    priority: 'Medium',
+    priority: 'Medium'
   },
   {
     name: 'List 3',
     color: 'info',
-    priority: 'High',
+    priority: 'High'
   }
 ]
 

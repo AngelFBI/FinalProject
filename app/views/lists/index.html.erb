@@ -1,5 +1,5 @@
 <h1>Lists</h1>
-<%= link_to 'New List', new_list_path, class: 'btn btn-outline-success mb-3'%>
+<%= link_to 'New List', new_board_list_path, class: 'btn btn-outline-success mb-3'%>
 
 <div class="row">
   <% @lists.each do |list| %>
@@ -7,4 +7,4 @@
   <% end %>
 </div>
 
-<%= link_to 'Go home', root_path %>
+<%= link_to 'Go home', boards_path %>

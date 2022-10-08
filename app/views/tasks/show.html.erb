@@ -9,4 +9,4 @@
   <%= @presenter.start_finish_justification_button? %>
 </div>
 
-<%= link_to 'Go back', lists_path %>
+<%= link_to 'Go back', board_lists_path(@task.list.board_id) %>

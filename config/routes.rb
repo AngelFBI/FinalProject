@@ -2,9 +2,13 @@
 
 Rails.application.routes.draw do
   root 'pages#home'
-  resources :lists, shallow: true do
-    resources :tasks
-    get 'tasks/:id/justification', to: 'tasks/justification#edit',
-                                   as: 'justification'
+  shallow do
+    resources :boards do
+      resources :lists do
+        resources :tasks
+        get 'tasks/:id/justification', to: 'tasks/justification#edit',
+                                       as: 'justification'
+      end
+    end
   end
 end
