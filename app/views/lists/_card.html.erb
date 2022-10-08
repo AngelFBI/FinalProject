@@ -4,9 +4,9 @@
       <%= link_to list.name, list %>
       <div>
         <%= link_to icon('fa-regular', 'pen-to-square'),
-          edit_list_path(list) %>
+          edit_list_path(list, board_id: list.board) %>
         <%= link_to icon('fa-solid', 'trash'),
-          list_path(list), method: :delete,
+          list_path(list, board_id: list.board), method: :delete,
           data: {confirm: "Are you sure?"} %>
       </div>
     </h5>

@@ -1,0 +1,31 @@
+<div class="card boards">
+  <div class="card-body">
+    <h5 class="card-title d-flex flex-row justify-content-between">
+      <%= link_to board.name, board %>
+      <div>
+        <%= link_to icon('fa-regular', 'pen-to-square'),
+          edit_board_path(board) %>
+        <%= link_to icon('fa-solid', 'trash'),
+          board_path(board), method: :delete,
+          data: {confirm: "Are you sure?"} %>
+      </div>
+    </h5>
+    <h6 class="card-subtitle mb-2">
+      Priority: <%= board.visibility %>
+    </h6>
+    <p class="card-text">
+      <% board.lists.each do |list|%>
+        <div class="card border border-dark mb-1 p-1 d-flex flex-row justify-content-between">
+          <div class='align-self-center'>
+            <%= list.name %>
+          </div>
+          <div>
+            <div class='bg-<%= list.color %> p-1 rounded'>
+              Priority: <%= list.priority %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </p>
+  </div>
+</div>

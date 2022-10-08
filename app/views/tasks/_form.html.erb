@@ -16,7 +16,7 @@
   <div class="mb-3 row">
     <%= f.label 'Select list', class:"col-sm-2 col-form-label" %>
     <div class="col-sm-10">
-      <%= f.collection_select :list_id, List.all, :id, :name, class: "form-control"%>
+      <%= f.collection_select :list_id, @lists, :id, :name, class: "form-control"%>
     </div>
   </div>
 

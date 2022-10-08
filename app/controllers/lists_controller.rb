@@ -2,9 +2,11 @@
 
 class ListsController < ApplicationController
   before_action :set_list, only: %i[show edit update destroy]
+  before_action :board, only: %i[index new create]
+  before_action :shallow_board, only: %i[update destroy]
 
   def index
-    @lists = List.all
+    @lists = @board.lists
   end
 
   def show
@@ -12,14 +14,14 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = List.new
+    @list = @board.lists.build
   end
 
   def create
-    @list = List.new(list_params)
+    @list = @board.lists.build(list_params)
     if @list.save
       flash[:success] = 'List was created successfully'
-      redirect_to lists_path
+      redirect_to board_lists_path(@board)
     else
       render 'new'
     end
@@ -30,7 +32,7 @@ class ListsController < ApplicationController
   def update
     if @list.update(list_params)
       flash[:success] = 'List was updated successfully'
-      redirect_to lists_path
+      redirect_to board_lists_path(@board)
     else
       render 'new'
     end
@@ -38,7 +40,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to lists_path
+    redirect_to board_lists_path(@board)
   end
 
   private
@@ -49,5 +51,13 @@ class ListsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def board
+    @board = Board.find(params[:board_id])
+  end
+
+  def shallow_board
+    @board = @list.board_id
   end
 end
