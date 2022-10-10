@@ -31,7 +31,7 @@ gem 'bootstrap'
 gem 'font-awesome-sass', '~> 6.2.0'
 gem 'rubocop-rails', require: false
 gem 'sidekiq'
-# gem 'jquery-rails'
+gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

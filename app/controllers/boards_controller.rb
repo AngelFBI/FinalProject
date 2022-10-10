@@ -5,7 +5,8 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all
-    ActionCable.server.broadcast("board_channel", { data: board_render(@boards) })
+    # ActionCable.server.broadcast("board_channel", { data: board_render(@boards) })
+    CreateBoardJob.perform_now(board_render(@boards))
   end
 
   def show
