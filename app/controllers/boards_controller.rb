@@ -5,6 +5,7 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all
+    ActionCable.server.broadcast("board_channel", { data: board_render(@boards) })
   end
 
   def show
@@ -49,5 +50,9 @@ class BoardsController < ApplicationController
 
   def set_board
     @board = Board.find(params[:id])
+  end
+
+  def board_render(boards)
+    render_to_string(partial: 'card', locals: { boards: boards })
   end
 end

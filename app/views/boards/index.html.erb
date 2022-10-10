@@ -1,10 +1,10 @@
 <h1>Boards</h1>
-<%= link_to 'New List', new_board_path, class: 'btn btn-outline-success mb-3'%>
+<%= link_to 'New Board', new_board_path, class: 'btn btn-outline-success mb-3'%>
 
-<div class="row">
-  <% @boards.each do |board| %>
-    <%= render 'card', board: board %>
-  <% end %>
+<div class="row cable-container">
+
+    <%= render 'card' %>
+
 </div>
 
 <%= link_to 'Go home', root_path %>
