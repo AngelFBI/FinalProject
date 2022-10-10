@@ -1,7 +1,7 @@
-<h1>Tasks</h1>
+<h1>Lista: <%= @list.name %></h1>
 
-<%= link_to 'Create New Task', new_task_path, class: "btn btn-success mb-3"%>
-
+<%= link_to 'Create New Task', new_list_task_path, class: "btn btn-success mb-3"%>
+<%= link_to 'Return', board_lists_path(@list.board_id), class: 'btn btn-outline-secondary mb-3'%>
 
 <% @tasks.each do |task| %>
   <%= render 'card', task: task %>
@@ -10,6 +10,3 @@
     <%= link_to 'Show', task_path(task), class:'btn btn-outline-info'%>
   </div>
 <% end %>
-
-
-<%= link_to 'Go home', root_path %>

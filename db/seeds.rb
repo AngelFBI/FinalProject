@@ -8,6 +8,37 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+boards = [
+  { name: 'board 1', visibility: :public },
+  { name: 'board 2', visibility: :public },
+  { name: 'board 3', visibility: :private }
+]
+
+Board.create(boards)
+
+lists = [
+  {
+    name: 'List 1',
+    color: 'success',
+    priority: 'Low'
+  },
+  {
+    name: 'List 2',
+    color: 'danger',
+    priority: 'Medium'
+  },
+  {
+    name: 'List 3',
+    color: 'info',
+    priority: 'High'
+  }
+]
+
+(1..3).each do |i|
+  lists = lists.each { |list| list[:board_id] = i }
+  List.create(lists)
+end
+
 tasks = [
   {
     title: 'Task 1',
@@ -33,14 +64,7 @@ tasks = [
   }
 ]
 
-Task.create(tasks)
-
-lists = [
-  {
-    name: 'List 1',
-    color: 'success',
-    priority: 'Low'
-  }
-]
-
-List.create(lists)
+(1..9).each do |i|
+  tasks = tasks.each { |task| task[:list_id] = i }
+  Task.create(tasks)
+end
