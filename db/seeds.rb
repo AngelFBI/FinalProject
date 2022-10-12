@@ -8,6 +8,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# since you have faker installed, it would
+# have been a good idea to use it for the
+# seeds. that's where it comes handy
 boards = [
   { name: 'board 1', visibility: :public },
   { name: 'board 2', visibility: :public },

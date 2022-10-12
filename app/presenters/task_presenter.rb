@@ -4,6 +4,7 @@ class TaskPresenter
   include ActionView::Helpers
   include Rails.application.routes.url_helpers
 
+  # good job doing this presenter
   def initialize(task)
     @task = task
   end

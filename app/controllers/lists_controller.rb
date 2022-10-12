@@ -5,6 +5,8 @@ class ListsController < ApplicationController
   before_action :board, only: %i[index new create]
   before_action :shallow_board, only: %i[update destroy]
 
+  # maybe it would be a good idea to have
+  # methods always in the same order
   def index
     @lists = @board.lists
   end
@@ -57,6 +59,7 @@ class ListsController < ApplicationController
     @board = Board.find(params[:board_id])
   end
 
+  # this should be at a presenter 
   def shallow_board
     @board = @list.board_id
   end
